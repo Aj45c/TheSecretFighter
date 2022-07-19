@@ -132,5 +132,11 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+LOGIN_REDIRECT_URL = '/fighters/'
+
+LOGOUT_REDIRECT_URL = '/'
 
 NPM_BIN_PATH ="/home/aj/.nvm/versions/node/v18.0.0/bin/npm"
+
+import django_heroku
+django_heroku.settings(locals())

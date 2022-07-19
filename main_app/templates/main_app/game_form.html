@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %} {% if object %}
+<h1 class="font-mono text-7xl">Editing <span>{{object.name}} ...</span></h1>
+{% else %}
+<h1 class="font-mono text-center pb-16 pt-16 text-7xl">Add a New Game</h1>
+{% endif %}
+<form action="" method="post">
+  {% csrf_token %}
+  <div class ="flex justify-center">
+  <table class="font-mono inline-flex items-center px-6 py-7 scale-125 caret-blue-500 rounded-lg border bg-gray-300 text-lg">
+    {{ form.as_table }}
+  </table>
+  </div>
+<input type="submit" value="Submit!" class="flex my-16 mx-auto content-center px-32 py-1 border border-transparent shadow-sm text-2xl font-medium rounded-md text-white bg-slate-500 hover:ring-4 ring-blue-700"/>
+</form>
+{% endblock %}

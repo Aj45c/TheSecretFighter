@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Delete This Game?</h1>
+
+<h4>
+  Are you sure you want to get rid of
+  <span>{{ object.name }}</span>?
+</h4>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Yes" class="btn red" />
+  <a class = 'btn blue' href="{% url 'detail' game.id %}">Cancel</a>
+</form>
+{% endblock %}

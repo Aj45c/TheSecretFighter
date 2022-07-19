@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+#theTitle{
+    font-family: 'Play', sans-serif;
+    font-size: medium;
+    background-color: rgb(47, 98, 111);
+}
+</style>
+<h1>Select Your Fighter!</h1>
+{% for game in games %}
+<div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8"">
+        {% for photo in game.photo_set.all %}
+        <div class ="card-image waves-effect waves-block">
+        <a href = "{% url 'detail' game.id %}">
+        <img src="{{ photo.url }}" height = "450" alt="{{ game.name }}">
+        <span id="theTitle" class="card-title activator"> {{ game.name }} </span></a>
+        </div>
+        {% empty %}
+        <a href = "{% url 'detail' game.id %}">
+        <div class="card-panel teal-text center-align">{{ game.name }}</div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
