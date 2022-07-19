@@ -1,32 +1,35 @@
 {% extends 'base.html' %} {% block content %}
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+  @import url('http://fonts.cdnfonts.com/css/american-captain-2');
 
-#theTitle{
-    font-family: 'Play', sans-serif;
-    font-size: medium;
-    background-color: rgb(47, 98, 111);
-}
+h1 {
+    font-family: 'American Captain', sans-serif;                                           
+    text-shadow: 3px 8px black;
+    -webkit-text-stroke: 1px black;
+  }
 </style>
-<h1>Select Your Fighter!</h1>
+<body class="bg-slate-700">
+<h1 class="text-center text-white text-6xl">Select Your Fighter!</h1>
+<div class="container grid grid-cols-4 mx-32 px-5 scale-75">
 {% for game in games %}
-<div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-      <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8"">
-        {% for photo in game.photo_set.all %}
-        <div class ="card-image waves-effect waves-block">
-        <a href = "{% url 'detail' game.id %}">
-        <img src="{{ photo.url }}" height = "450" alt="{{ game.name }}">
-        <span id="theTitle" class="card-title activator"> {{ game.name }} </span></a>
-        </div>
-        {% empty %}
-        <a href = "{% url 'detail' game.id %}">
-        <div class="card-panel teal-text center-align">{{ game.name }}</div>
+  <div>
+    <div class="my-4 px-2 w-64">
+      {% for photo in game.photo_set.all %}
+      <div class="rounded-t-xl overflow-hidden shadow-xl shadow-black bg-red-500 ring-2 ring-red-500">
+        <a href="{% url 'detail' game.id %}">
+          <span id="theTitle" class="font-mono"> {{ game.name }} </span>
+          <img src="{{ photo.url }}" class="box-border h-80 w-64" alt="{{ game.name }}">
         </a>
-        {% endfor %}
       </div>
+      {% empty %}
+      <a href="{% url 'detail' game.id %}">
+        <div class="card-panel teal-text center-align">{{ game.name }}</div>
+      </a>
+      {% endfor %}
     </div>
   </div>
-{% endfor %}
 
+{% endfor %}
+</div>
+</body>
 {% endblock %}

@@ -1,12 +1,24 @@
 {% extends 'base.html' %} {% block content %}
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+      @import url('http://fonts.cdnfonts.com/css/american-captain-2');
+
+h1 {
+    font-family: 'American Captain', sans-serif;                                           
+    text-shadow: 3px 8px black;
+    -webkit-text-stroke: 1px black;
+  }
+body{
+  background-image: url(https://i.imgur.com/ZjROkrb.png);
+  background-repeat: no-repeat;
+  background-position: 25% 75%;
+  image-rendering: pixelated;
+}
 </style>
-<body class ="font-mono">
-<h1 class = "text-center text-7xl pt-7">Main Menu</h1>
-<div id="select" class="flex flex-col text-center my-44 text-xl">
-    <div class = "m-auto transition duration-300 ease-in px-3 py-3 rounded-lg hover:shadow-md"><a href = "fighters/">Click here to Start</a></div>
-    <div class = "m-auto transition duration-300 ease-in px-3 py-3 rounded-lg hover:shadow-md"><a href = "accounts/signup/">Click here to Insert Credit</a></div>
+<body class ="font-mono bg-slate-700">
+<h1 class = "text-center text-white text-9xl pt-12">Main Menu</h1>
+<div id="select" class="flex flex-col text-center my-14 text-3xl">
+    <div class = "mb-3 mx-auto transition duration-300 ease-in px-3 py-3 rounded-full hover:bg-slate-600"><a href = "fighters/">Click here to Start</a></div>
+    <div class = "mb-10 mx-auto transition duration-300 ease-in px-3 py-3 rounded-full hover:bg-slate-600"><a href = "accounts/signup/">Click here to Insert Credit </a></div>
     <div class="text-xs">^ Signup ^</div>
 </div>
 </body>
