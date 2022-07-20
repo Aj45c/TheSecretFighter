@@ -1,34 +1,66 @@
 {% extends 'base.html' %} {% block content %}
+<style>
+    @import url('http://fonts.cdnfonts.com/css/american-captain-2');
+
+    #theName {
+        font-family: 'American Captain', sans-serif;
+        text-shadow: 3px 8px black;
+        -webkit-text-stroke: 1px black;
+    }
+
+    #theRest {
+        font-family: 'American Captain', sans-serif;
+        -webkit-text-stroke: 1px black;
+        font-size: 35px;
+        text-shadow: 2px 5px black;
+    }
+</style>
+
 <body class=" bg-slate-700">
-<div class="flex rounded-lg border shadow-md mx-96 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <div class="flex pr-40 w-full bg-red-200 rounded-lg overflow-hidden">
-        <div id="card_placement">
-                {% for photo in game.photo_set.all %}
-                <img class="object-contain w-80 h-auto" src="{{ photo.url }}" alt="{{ game.name }}">
-                {% empty %}
-                <div>No Photos Uploaded</div>
-                {% endfor %}
-            </div>
-            <div>
-                <span> {{ game.name }}</span>
-                <p>Publisher: {{ game.publisher }} </p>
-                <p>Description: {{ game.description }}</p>
-                <p>Number of Characters: {{ game.num_of_chars }}</p>
-                <p>Critics Rating: {{ game.crit_rating }}</p>
-            </div>
+
+    <div class="flex flex-row mx-96 bg-slate-600 rounded-lg p-5 ring-4 ring-red-500 shadow-2xl">
+        <div>
+            {% for photo in game.photo_set.all %}
+            <img class="object-contain scale-110 w-80 rounded-xl" src="{{ photo.url }}" alt="{{ game.name }}">
+            {% empty %}
+            <div>No Photos Uploaded</div>
+            {% endfor %}
         </div>
-        
+        <div class="pl-10 text-3xl space-y-5">
+            <h1 id="theName" class="text-6xl text-white text"> {{ game.name }}</h1>
+            <p class=>
+                <span id="theRest" class="text-white">Publisher: </span>
+                {{ game.publisher }}
+            </p>
+
+            <p class="whitespace-normal">
+                <span id="theRest" class="text-white">Description: </span>
+                {{ game.description }}
+            </p>
+
+            <p>
+                <span id="theRest" class="text-white">Number of Characters: </span>
+                {{ game.num_of_chars }}
+            </p>
+
+            <p>
+                <span id="theRest" class="text-white">Critics Rating: </span>
+                {{ game.crit_rating }}
+            </p>
+        </div>
     </div>
 
+    <div class="inline-flex my-5 ml-96 space-x-8 font-medium">
+        <a class="p-4 rounded-full bg-sky-800 mx-auto transition duration-500 ease-in-out hover:bg-sky-600"
+            href="{% url 'game_update' game.id %}">Edit Description?</a>
+        <a class="p-4 rounded-full bg-red-900 mx-auto transition duration-500 ease-in-out hover:bg-red-700"
+            href="{% url 'game_delete' game.id %}">Delete this Game?</a>
+    <form `action="{% url 'add_photo' game.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="submit" class="p-4 rounded-full bg-slate-800 transition duration-500 ease-in-out hover:bg-slate-600" value="Upload Photo">
+        <input type="file" name="photo-file" />
+
+    </form>
 </div>
-<a href="{% url 'game_update' game.id %}">Edit Decription?</a>
-<a href="{% url 'game_delete' game.id %}">Delete this Game?</a>
-<form action="{% url 'add_photo' game.id %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="photo-file" />
-    <br />
-    <br />
-    <input type="submit" class="btn" value="Upload Photo">
-</form>
 </body>
 {% endblock %}

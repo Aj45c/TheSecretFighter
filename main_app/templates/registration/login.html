@@ -1,9 +1,21 @@
 {% extends 'base.html' %} {% block content %}
-
-<h1>Log In</h1>
+<style>
+    @import url('http://fonts.cdnfonts.com/css/american-captain-2');
+  
+  h1 {
+      font-family: 'American Captain', sans-serif;                                           
+      text-shadow: 3px 8px black;
+      -webkit-text-stroke: 1px black;
+    }
+</style>
+<body class="bg-slate-700">
+<h1 class="text-white text-6xl text-center">Log In</h1>
+<div class="flex place-content-center my-36">
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %} {{ form.as_p }}
-    <input type="submit" class="btn" value="login" />
+    <input type="submit" class="space-y-6" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
-    
+</form>
+</div>
+</body> 
 {% endblock %}
