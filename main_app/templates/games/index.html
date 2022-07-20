@@ -15,7 +15,7 @@ h1 {
   <div>
     <div class="my-4 px-2 w-64">
       {% for photo in game.photo_set.all %}
-      <div class="rounded-t-xl overflow-hidden shadow-xl shadow-black bg-red-500 ring-2 ring-red-500">
+      <div class="rounded-xl overflow-hidden shadow-xl shadow-black bg-red-500 ring-2 ring-red-500">
         <a href="{% url 'detail' game.id %}">
           <span id="theTitle" class="font-mono"> {{ game.name }} </span>
           <img src="{{ photo.url }}" class="box-border h-80 w-64" alt="{{ game.name }}">
