@@ -1,13 +1,13 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %} {% block content %}
 
 <style>
   @import url('https://fonts.cdnfonts.com/css/american-captain-2');
 
-h1 {
-font-family: 'American Captain', sans-serif;                                           
-text-shadow: 3px 8px black;
--webkit-text-stroke: 1px black;
-}
+  h1 {
+    font-family: 'American Captain', sans-serif;
+    text-shadow: 3px 8px black;
+    -webkit-text-stroke: 1px black;
+  }
 </style>
 {% if object %}
 <h1 class="text-white text-center pb-16 pt-16 text-7xl bg-slate-700">Editing <span>{{object.name}} ...</span></h1>
@@ -15,15 +15,17 @@ text-shadow: 3px 8px black;
 <h1 class="text-white text-center pb-16 pt-16 text-7xl bg-slate-700">Add a New Game</h1>
 {% endif %}
 
-<body class = "bg-slate-700">
-<form action="" method="post">
-  {% csrf_token %}
-  <div class ="flex justify-center">
-  <table class="font-mono inline-flex items-center px-6 py-7 scale-125 caret-blue-500 rounded-xl bg-slate-600 text-lg">
-    {{ form.as_table }}
-  </table>
-  </div>
-<input type="submit" value="Submit!" class="flex my-16 mx-auto content-center px-32 py-1 border border-transparent shadow-sm text-2xl font-medium rounded-full text-white hover:bg-slate-600"/>
-</form>
+<body class="bg-slate-700">
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="flex justify-center">
+      <table
+        class="font-mono inline-flex items-center px-6 py-7 scale-125 caret-blue-500 rounded-xl bg-slate-600 text-lg">
+        {{ form.as_table }}
+      </table>
+    </div>
+    <input type="submit" value="Submit!"
+      class="flex my-16 mx-auto content-center px-32 py-1 border border-transparent shadow-sm text-2xl font-medium rounded-full text-white hover:bg-slate-600" />
+  </form>
 </body>
 {% endblock %}

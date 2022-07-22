@@ -2,19 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 
-# Create your models here.
-# class Profile(models.Model):
-#     username = models.CharField(max_length=150)
-#     description = models.CharField(max_length=250)
-#     gender = models.CharField(max_length=30)
-#     age = models.IntegerField()
-
-#     def __str__(self):
-#         return self.username
-
-#     def get_absolute_url(self):
-#         return reverse('detail', kwargs={'finch_id': self.id})
-
 class Game(models.Model):
     name = models.CharField(max_length=50)
     release = models.DateField()

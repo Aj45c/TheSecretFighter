@@ -1,25 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 <style>
-      @import url('https://fonts.cdnfonts.com/css/american-captain-2');
+  @import url('https://fonts.cdnfonts.com/css/american-captain-2');
 
-h1 {
-    font-family: 'American Captain', sans-serif;                                           
+  h1 {
+    font-family: 'American Captain', sans-serif;
     text-shadow: 3px 8px black;
     -webkit-text-stroke: 1px black;
   }
-body{
-  background-image: url(https://i.imgur.com/ZjROkrb.png);
-  background-repeat: no-repeat;
-  background-position: 25% 75%;
-  image-rendering: pixelated;
-}
+
+  body {
+    background-image: url(https://i.imgur.com/ZjROkrb.png); /*This is me! As Cable from Marvel */
+    background-repeat: no-repeat;
+    background-position: 25% 75%;
+    image-rendering: pixelated;
+  }
 </style>
-<body class ="font-mono bg-slate-700">
-<h1 class = "text-center text-white text-9xl pt-12">Main Menu</h1>
-<div id="select" class="flex flex-col text-center my-14 text-3xl">
-    <div class = "mb-3 mx-auto transition duration-300 ease-in px-3 py-3 rounded-full hover:bg-slate-600"><a href = "fighters/">Click here to Start</a></div>
-    <div class = "mb-10 mx-auto transition duration-300 ease-in px-3 py-3 rounded-full hover:bg-slate-600"><a href = "accounts/signup/">Click here to Insert Credit </a></div>
+ <!-- The font-mono gives the overall body a typewriter looking font in this case the header and the "Click Here" text -->
+
+<body class="font-mono bg-slate-700">
+  <h1 class="text-center text-white text-9xl pt-12">Main Menu</h1>
+  <div id="select" class="flex flex-col text-center my-14 text-3xl">
+    <div class="mb-3 mx-auto transition duration-300 ease-in px-3 py-3 rounded-full hover:bg-slate-600"><a
+        href="fighters/">Click here to Start</a></div>
+    <div class="mb-10 mx-auto transition duration-300 ease-in px-3 py-3 rounded-full hover:bg-slate-600"><a
+        href="accounts/signup/">Click here to Insert Credit </a></div>
     <div class="text-xs">^ Signup ^</div>
-</div>
+  </div>
 </body>
 {% endblock %}

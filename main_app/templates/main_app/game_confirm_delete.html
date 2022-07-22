@@ -2,33 +2,36 @@
 <style>
   @import url('https://fonts.cdnfonts.com/css/american-captain-2');
 
-h1 {
-    font-family: 'American Captain', sans-serif;                                           
+  h1 {
+    font-family: 'American Captain', sans-serif;
     text-shadow: 3px 8px black;
     -webkit-text-stroke: 1px black;
   }
-body {
-  background-image: url(https://i.imgur.com/hLjOMHv.png);
-  background-repeat: no-repeat;
-  background-position: 15% 75%;
-  image-rendering: pixelated;
-}
+
+  body {
+    background-image: url(https://i.imgur.com/hLjOMHv.png);
+    background-repeat: no-repeat;
+    background-position: 15% 75%;
+    image-rendering: pixelated;
+  }
 </style>
 
 <body class="bg-slate-700">
-<div class="grid place-content-center mx-auto my-44">
-<h1 class="text-7xl text-white">Delete This Game?</h1>
+  <div class="grid place-content-center mx-auto my-44">
+    <h1 class="text-7xl text-white">Delete This Game?</h1>
 
-<h4 class="text-3xl">
-  Are you sure you want to get rid of
-  <span>{{ object.name }}</span>?
-</h4>
-<br>
-<form class="space-x-6"action="" method="POST">
-  {% csrf_token %}
-  <input type="submit" value="Yes" class="py-3 px-8 rounded-full transition duration-500 ease-in-out hover:bg-red-800" />
-  <a class = 'py-3 px-5 rounded-full transition duration-500 ease-in-out hover:bg-slate-600' href="{% url 'detail' game.id %}">Cancel</a>
-</form>
-</div>
+    <h4 class="text-3xl">
+      Are you sure you want to get rid of
+      <span>{{ object.name }}</span>?
+    </h4>
+    <br>
+    <form class="space-x-6" action="" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Yes"
+        class="py-3 px-8 rounded-full transition duration-500 ease-in-out hover:bg-red-800" />
+      <a class='py-3 px-5 rounded-full transition duration-500 ease-in-out hover:bg-slate-600'
+        href="{% url 'detail' game.id %}">Cancel</a>
+    </form>
+  </div>
 </body>
 {% endblock %}
